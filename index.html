@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="description" content="奇绩智峰智能科技 - 致力于AGI前沿技术，诚邀顶尖AI人才加入">
+<meta property="og:title" content="奇绩智峰智能科技 - 招聘">
+<meta property="og:description" content="RL/LLM/Code算法、AI Infra、AI Agent、AI产品 - 上海/北京">
+<meta property="og:type" content="website">
+<title>奇绩智峰智能科技 · 招聘</title>
+<style>
+  :root {
+    --bg: #f2f7fb;
+    --surface: #ffffff;
+    --surface2: #eef4f9;
+    --border: #d8e4ef;
+    --text: #1a2733;
+    --text2: #4b6074;
+    --text3: #8899aa;
+    --accent: #5b9bd5;
+    --accent2: #3a7cc3;
+    --accent-glow: rgba(91,155,213,0.15);
+    --gold: #c4944a;
+    --tag-bg: rgba(91,155,213,0.08);
+    --card-hover: #f8fafd;
+    --radius: 16px;
+    --radius-sm: 10px;
+    --shadow: 0 2px 16px rgba(30,50,70,0.06);
+    --font: "PingFang SC","Hiragino Sans GB","Microsoft YaHei","Noto Sans SC",sans-serif;
+  }
+
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html { scroll-behavior:smooth; -webkit-font-smoothing:antialiased; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font);
+    line-height: 1.6;
+    overflow-x: hidden;
+    min-height: 100vh;
+  }
+
+  /* ── Mountain sky background ── */
+  .stars {
+    position: fixed; top:0; left:0; width:100%; height:100%;
+    pointer-events: none; z-index: 0;
+    background: linear-gradient(180deg, #e8f2fa 0%, #f2f7fb 30%, #f8fafc 70%, #eef3f8 100%);
+  }
+
+  /* ── Container ── */
+  .container {
+    position: relative; z-index: 1;
+    max-width: 520px; margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  /* ── Header ── */
+  .header {
+    text-align: center;
+    padding: 60px 0 40px;
+  }
+  .logo-line {
+    display: inline-flex; align-items: center; gap: 8px;
+    margin-bottom: 8px;
+  }
+  .logo-diamond {
+    width: 12px; height: 12px;
+    background: var(--accent);
+    transform: rotate(45deg);
+    border-radius: 2px;
+    box-shadow: 0 0 12px rgba(91,155,213,0.3);
+    animation: pulse 2.5s ease-in-out infinite;
+  }
+  @keyframes pulse {
+    0%,100% { box-shadow: 0 0 12px rgba(91,155,213,0.3); }
+    50% { box-shadow: 0 0 24px rgba(58,124,195,0.45); }
+  }
+  .company-name {
+    font-size: 28px; font-weight: 800;
+    letter-spacing: 0.04em;
+    background: linear-gradient(135deg, #3a7cc3 0%, #5b9bd5 40%, #78b8e8 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .tagline {
+    font-size: 15px; color: var(--text2);
+    letter-spacing: 0.06em;
+    margin-top: 4px;
+  }
+  .header-badge {
+    display: inline-block;
+    margin-top: 14px;
+    padding: 6px 18px;
+    border-radius: 20px;
+    font-size: 13px; font-weight: 600;
+    color: var(--accent2);
+    background: var(--tag-bg);
+    border: 1px solid rgba(91,155,213,0.25);
+    letter-spacing: 0.04em;
+  }
+
+  /* ── Section title ── */
+  .section-title {
+    font-size: 13px; font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--accent);
+    margin: 40px 0 18px;
+    padding-left: 4px;
+  }
+
+  /* ── About card ── */
+  .about-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 24px;
+    margin-bottom: 8px;
+    box-shadow: var(--shadow);
+  }
+  .about-card p {
+    font-size: 14.5px; color: var(--text2);
+    line-height: 1.75;
+  }
+  .about-highlights {
+    display: flex; flex-wrap: wrap; gap: 8px;
+    margin-top: 16px;
+  }
+  .highlight-tag {
+    font-size: 12px; font-weight: 600;
+    padding: 5px 12px;
+    border-radius: 6px;
+    background: var(--tag-bg);
+    color: var(--accent2);
+    letter-spacing: 0.03em;
+  }
+
+  /* ── Job card ── */
+  .job-list { display:flex; flex-direction:column; gap:10px; margin-bottom:20px; }
+
+  .job-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 20px 22px;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    position: relative;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+  }
+  .job-card:hover, .job-card.open {
+    background: var(--card-hover);
+    border-color: rgba(91,155,213,0.4);
+    box-shadow: 0 6px 24px rgba(30,50,70,0.1), inset 0 1px 0 rgba(91,155,213,0.08);
+  }
+  .job-card::before {
+    content: '';
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    background: linear-gradient(180deg, rgba(91,155,213,0.03) 0%, transparent 50%);
+    opacity: 0; transition: opacity 0.3s;
+  }
+  .job-card:hover::before, .job-card.open::before { opacity: 1; }
+
+  .job-header {
+    display: flex; justify-content: space-between;
+    align-items: flex-start; gap: 12px;
+    position: relative; z-index: 1;
+  }
+  .job-info { flex:1; }
+  .job-title {
+    font-size: 16px; font-weight: 700;
+    color: var(--text);
+    letter-spacing: 0.02em;
+  }
+  .job-meta {
+    display: flex; flex-wrap: wrap; gap: 8px;
+    margin-top: 8px;
+  }
+  .job-meta span {
+    font-size: 12px; font-weight: 500;
+    padding: 3px 10px;
+    border-radius: 4px;
+    letter-spacing: 0.03em;
+  }
+  .meta-loc {
+    background: #fdf6ed;
+    color: #b88130;
+  }
+  .meta-type {
+    background: rgba(91,155,213,0.1);
+    color: var(--accent2);
+  }
+  .meta-level {
+    background: rgba(91,155,213,0.07);
+    color: #6aa8d8;
+  }
+
+  .job-arrow {
+    width: 28px; height: 28px;
+    display: flex; align-items: center;
+    justify-content: center;
+    flex-shrink: 0; margin-top: 2px;
+    transition: transform 0.3s ease;
+  }
+  .job-arrow svg {
+    width: 16px; height: 16px;
+    stroke: var(--text3);
+    transition: stroke 0.3s;
+  }
+  .job-card.open .job-arrow { transform: rotate(180deg); }
+  .job-card.open .job-arrow svg,
+  .job-card:hover .job-arrow svg { stroke: var(--accent2); }
+
+  .job-detail {
+    max-height: 0; overflow: hidden;
+    transition: max-height 0.4s ease, margin 0.3s ease, opacity 0.3s ease;
+    opacity: 0; margin-top: 0;
+    position: relative; z-index: 1;
+  }
+  .job-card.open .job-detail {
+    max-height: 2000px;
+    opacity: 1;
+    margin-top: 18px;
+  }
+  .job-detail-inner {
+    border-top: 1px solid var(--border);
+    padding-top: 16px;
+  }
+  .jd-block { margin-bottom: 14px; }
+  .jd-label {
+    font-size: 12px; font-weight: 700;
+    color: var(--accent);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+  .jd-list {
+    list-style: none;
+    padding: 0;
+  }
+  .jd-list li {
+    font-size: 13.5px; color: var(--text2);
+    padding: 3px 0 3px 16px;
+    position: relative;
+    line-height: 1.65;
+  }
+  .jd-list li::before {
+    content: '';
+    position: absolute; left: 0; top: 10px;
+    width: 5px; height: 5px;
+    border-radius: 50%;
+    background: var(--accent);
+    opacity: 0.6;
+  }
+
+  .apply-btn {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 8px 22px;
+    border-radius: 20px;
+    font-size: 13px; font-weight: 600;
+    color: #fff;
+    background: linear-gradient(135deg, #5b9bd5, #3a7cc3);
+    border: none;
+    cursor: pointer;
+    letter-spacing: 0.04em;
+    transition: transform 0.2s, box-shadow 0.2s;
+    text-decoration: none;
+  }
+  .apply-btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(58,124,195,0.3);
+  }
+
+  /* ── Contact section ── */
+  .contact-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 24px;
+    text-align: center;
+    margin-bottom: 20px;
+    box-shadow: var(--shadow);
+  }
+  .contact-card h3 {
+    font-size: 17px; font-weight: 700;
+    margin-bottom: 6px;
+    color: var(--text);
+  }
+  .contact-card p {
+    font-size: 13.5px; color: var(--text2);
+    margin-bottom: 14px;
+  }
+  .contact-email {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 10px 24px;
+    border-radius: 24px;
+    font-size: 14px; font-weight: 600;
+    color: #fff;
+    background: linear-gradient(135deg, #5b9bd5, #3a7cc3);
+    text-decoration: none;
+    letter-spacing: 0.03em;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .contact-email:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 28px rgba(58,124,195,0.35);
+  }
+  .contact-email svg {
+    width: 18px; height: 18px;
+  }
+
+  /* ── Footer ── */
+  .footer {
+    text-align: center;
+    padding: 32px 0 40px;
+    font-size: 12px; color: var(--text3);
+    letter-spacing: 0.05em;
+  }
+
+  /* ── Toast ── */
+  .toast {
+    position: fixed; top: 24px; left: 50%;
+    transform: translateX(-50%) translateY(-120px);
+    background: #3a7cc3;
+    color: #fff;
+    padding: 10px 24px;
+    border-radius: 24px;
+    font-size: 13px; font-weight: 600;
+    z-index: 99;
+    box-shadow: 0 8px 28px rgba(30,50,70,0.25);
+    transition: transform 0.35s cubic-bezier(0.18, 0.89, 0.32, 1.08);
+    pointer-events: none;
+  }
+  .toast.show { transform: translateX(-50%) translateY(0); }
+
+  /* ── Responsive ── */
+  @media (max-width: 400px) {
+    .company-name { font-size: 24px; }
+    .job-title { font-size: 15px; }
+    .header { padding: 40px 0 30px; }
+  }
+</style>
+</head>
+<body>
+<div class="stars"></div>
+
+<div class="container">
+
+  <!-- Header -->
+  <header class="header">
+    <div class="logo-line">
+      <div class="logo-diamond"></div>
+      <div class="logo-diamond" style="animation-delay:0.4s; background:#a29bfe;"></div>
+    </div>
+    <h1 class="company-name">奇绩智峰智能科技</h1>
+  </header>
+
+  <!-- About -->
+  <div class="section-title">· 关于我们 ·</div>
+  <div class="about-card">
+    <p>
+      奇绩智峰智能科技是一家聚焦<strong>通用人工智能（AGI）</strong>前沿技术研发的初创公司。
+      我们致力于大语言模型的对齐与后训练、强化学习、AI Infra 训练推理框架，以及 AI Agent 全栈应用的探索与落地。
+      团队由来自顶尖科技公司和学术机构的成员组成，目前在上海和北京设有办公室。
+    </p>
+    <div class="about-highlights">
+      <span class="highlight-tag">🔬 前沿研究</span>
+      <span class="highlight-tag">🏗️ 技术驱动</span>
+      <span class="highlight-tag">🤖 AGI 信仰</span>
+      <span class="highlight-tag">🌍 上海 & 北京</span>
+      <span class="highlight-tag">💎 早期核心团队</span>
+    </div>
+  </div>
+
+  <!-- Jobs -->
+  <div class="section-title">· 热招岗位 ·</div>
+  <div class="job-list">
+
+    <!-- 1. RL算法 -->
+    <div class="job-card" onclick="toggleCard(this)">
+      <div class="job-header">
+        <div class="job-info">
+          <div class="job-title">RL 算法工程师</div>
+          <div class="job-meta">
+            <span class="meta-loc">📍 上海 / 北京</span>
+            <span class="meta-type">全职 / 实习</span>
+          </div>
+        </div>
+        <div class="job-arrow">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="6 9 12 15 18 9"/>
+          </svg>
+        </div>
+      </div>
+      <div class="job-detail">
+        <div class="job-detail-inner">
+          <div class="jd-block">
+            <div class="jd-label">我们在找这样的你</div>
+            <ul class="jd-list">
+              <li>你不满足于只是调包 SFT，你相信 RL 才是模型获得真正推理能力的钥匙——让模型在试错中长出"思维"，而不是背诵答案</li>
+              <li>你会盯着 wandb 的 reward curve 到凌晨，因为那个 spike 可能意味着某个 reward hacking，或者更妙的——某种 emergent reasoning 正在发生</li>
+              <li>你读 GRPO / Reward Model / Verifier 的 paper 不是"跟风"，而是脑子里已经有好几个想魔改的点子，手痒想上集群跑</li>
+              <li>你会和团队争论"这个 reward 到底该稀疏还是稠密"——然后直接写个 ablation 用数据说话</li>
+            </ul>
+          </div>
+          <div class="jd-block">
+            <div class="jd-label">希望你具备</div>
+            <ul class="jd-list">
+              <li>把 PPO/GRPO 的 loss 手写在白板上不会卡壳，知道 advantage 估计的不同 trick 及其偏差-方差 tradeoff</li>
+              <li>有至少一个 RL + LLM 的项目真正跑过——不是玩具实验，是真的在 GPU 集群上训过、调过、踩过坑的那种</li>
+              <li>PyTorch 是你的肌肉记忆，DeepSpeed/FSDP 至少摸过一种，能读懂 NCCL 的报错不靠 ChatGPT</li>
+              <li>加分项：在 ICML/NeurIPS/ICLR 发过 RL 相关 paper；给 Open RLHF / verl 等开源项目提过 PR；自己 hack 过 reward model 的架构</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2. LLM后训练算法 -->
+    <div class="job-card" onclick="toggleCard(this)">
+      <div class="job-header">
+        <div class="job-info">
+          <div class="job-title">LLM 后训练算法工程师</div>
+          <div class="job-meta">
+            <span class="meta-loc">📍 上海 / 北京</span>
+            <span class="meta-type">全职 / 实习</span>
+          </div>
+        </div>
+        <div class="job-arrow">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="6 9 12 15 18 9"/>
+          </svg>
+        </div>
+      </div>
+      <div class="job-detail">
+        <div class="job-detail-inner">
+          <div class="jd-block">
+            <div class="jd-label">我们在找这样的你</div>
+            <ul class="jd-list">
+              <li>你清楚 pre-training 给模型的是"知识"，而 post-training 给的是"灵魂"——你着迷于那层薄薄的对齐层如何彻底改变模型的可用性</li>
+              <li>你对数据质量的洁癖到了偏执的程度——一条低质 SFT 样本混进十万条里你都能闻到，因为你知道 garbage in 在这里的代价是模型学会"假装听话"</li>
+              <li>你不会满足于跑通一个 SFT 流程，你想搞清楚：什么样的数据配比能让模型不灾难性遗忘？curriculum 的顺序真的影响最终效果吗？合成数据和人工标注的最佳配比是多少？</li>
+              <li>RLHF/DPO/SimPO/KTO——你知道每个方法的数学本质、适用场景和隐藏坑点，并且在真实任务上对比过它们</li>
+            </ul>
+          </div>
+          <div class="jd-block">
+            <div class="jd-label">希望你具备</div>
+            <ul class="jd-list">
+              <li>完整走过至少一轮 LLM 后训练全流程：数据清洗 → SFT → 对齐 → 评测，不是在 colab 上跑的 demo</li>
+              <li>对数据有强迫症：会写复杂的 dedup / 质量过滤 / 格式校验 pipeline，知道 embedding-based dedup 和 exact match 分别适用什么场景</li>
+              <li>熟悉主流评测体系（AlpacaEval / MT-Bench / Chatbot Arena 等），并且对它们的局限性有自己的判断——你不迷信 benchmark 数字</li>
+              <li>加分项：自己做过数据合成（从 seed 生成到多轮过滤）；给开源模型做过完整的 post-training pipeline；在 alignment 方向有 paper 或技术博客</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3. Code算法 -->
+    <div class="job-card" onclick="toggleCard(this)">
+      <div class="job-header">
+        <div class="job-info">
+          <div class="job-title">Code 算法工程师</div>
+          <div class="job-meta">
+            <span class="meta-loc">📍 上海 / 北京</span>
+            <span class="meta-type">全职 / 实习</span>
+          </div>
+        </div>
+        <div class="job-arrow">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="6 9 12 15 18 9"/>
+          </svg>
+        </div>
+      </div>
+      <div class="job-detail">
+        <div class="job-detail-inner">
+          <div class="jd-block">
+            <div class="jd-label">我们在找这样的你</div>
+            <ul class="jd-list">
+              <li>你相信代码不只是文本——它是可执行的逻辑，有结构、有依赖、有运行时反馈。你不想做又一个代码补全模型，你想做的是真正理解代码的 AI</li>
+              <li>你对 SWE-bench 上的每个百分点都较真，但你更关心的是：模型是真的学会了推理 bug，还是只是在背 GitHub issue 里的讨论？</li>
+              <li>你可能会在周末无聊时写个脚本，把所有开源 code LLM 在你的私有 repo 上跑一轮对比，然后得出某个反直觉的结论在 Twitter 上发个 thread</li>
+              <li>你认为 code agent 的终极形态不是"写好 prompt 等输出"，而是让模型能 run test → read error → edit → run again——一个真正的编码闭环</li>
+            </ul>
+          </div>
+          <div class="jd-block">
+            <div class="jd-label">希望你具备</div>
+            <ul class="jd-list">
+              <li>代码能力过硬：不止会写 Python，你对编译原理、AST、类型系统、程序分析至少一个方向有深入理解，能说出 tree-sitter 和 antlr 的设计差异</li>
+              <li>有 code model 相关的 hands-on 经验：训练过、fine-tune 过、或者搭建过代码模型的评测 pipeline，知道 HumanEval 和 SWE-bench 的局限性</li>
+              <li>理解 RL/搜索在代码生成中的应用：MCTS/过程奖励/执行反馈——你至少亲自实现过其中一种</li>
+              <li>加分项：给开源 code model 项目贡献过代码；自己做过 code agent 或 coding benchmark；在编译器/PL/形式化验证方向有学术背景</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 4. AI Infra -->
+    <div class="job-card" onclick="toggleCard(this)">
+      <div class="job-header">
+        <div class="job-info">
+          <div class="job-title">AI Infra 训练推理框架工程师</div>
+          <div class="job-meta">
+            <span class="meta-loc">📍 上海 / 北京</span>
+            <span class="meta-type">全职 / 实习</span>
+          </div>
+        </div>
+        <div class="job-arrow">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="6 9 12 15 18 9"/>
+          </svg>
+        </div>
+      </div>
+      <div class="job-detail">
+        <div class="job-detail-inner">
+          <div class="jd-block">
+            <div class="jd-label">我们在找这样的你</div>
+            <ul class="jd-list">
+              <li>你对"快"有生理级别的追求——kernel launch overhead 多 5μs 你会难受，GPU 利用率掉到 60% 以下你会觉得在烧钱，memory bandwidth 是你每天盯的 dashboard</li>
+              <li>你不只是"会用" vLLM 或 DeepSpeed——你读过它们的 CUDA kernel 源码，知道 page attention 为什么比 flash attention 在长序列上更吃显存，也改过 NCCL 的 ring/ tree topology 来适配你的集群拓扑</li>
+              <li>别跟你提"用 huggingface trainer 一键启动"——你要的是能精准控制每一层的 activation checkpointing、能按 layer 粒度编排 offload、能在千卡上做到 55%+ MFU 的训练框架</li>
+              <li>你享受那种"把一个 kernel 从 20ms 优化到 3ms"的纯粹快乐，然后轻描淡写地对同事说"就是把 shared memory 的 bank conflict 解决了一下"</li>
+            </ul>
+          </div>
+          <div class="jd-block">
+            <div class="jd-label">希望你具备</div>
+            <ul class="jd-list">
+              <li>CUDA 是你的第二语言：知道 warp divergence、shared memory bank conflict、occupancy 怎么调，能手写 flash attention 的前向 kernel</li>
+              <li>分布式训练不只是概念：真正在百卡以上集群上调试过 TP/PP/DP/SP 的组合策略，遇到过一个 rank hang 住然后靠 trace 定位到某条链路故障的经历</li>
+              <li>读过 Megatron-LM / DeepSpeed / FSDP 至少一个框架的核心代码，能说出它们的设计取舍——什么时候用 TP 而不是 PP？SP 的通信量和计算量怎么量化？</li>
+              <li>加分项：给 vLLM / SGLang / TRT-LLM 提过 performance PR；搞过昇腾/寒武纪等国产芯片的算子适配；有 InfiniBand/RoCE 网络调优实战；写过 CUDA 的 flash-attn 风格 custom op</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 5. AI Agent 全栈 -->
+    <div class="job-card" onclick="toggleCard(this)">
+      <div class="job-header">
+        <div class="job-info">
+          <div class="job-title">AI Agent 全栈开发工程师</div>
+          <div class="job-meta">
+            <span class="meta-loc">📍 上海 / 北京</span>
+            <span class="meta-type">全职</span>
+          </div>
+        </div>
+        <div class="job-arrow">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="6 9 12 15 18 9"/>
+          </svg>
+        </div>
+      </div>
+      <div class="job-detail">
+        <div class="job-detail-inner">
+          <div class="jd-block">
+            <div class="jd-label">我们在找这样的你</div>
+            <ul class="jd-list">
+              <li>你可能是全栈出身，但最近一年你的 terminal 里出现最多的命令是各种 LLM API 的 curl 和 prompt 迭代脚本——你发现自己对"怎么让模型听话"比"怎么写 reducer"更着迷</li>
+              <li>你搭过至少一个 AI agent 的 side project——可能是自动处理邮件的，可能是帮你刷 LeetCode 的——但重点是你对 agent loop（感知→推理→调用→观察→再推理）有肌肉级的体感</li>
+              <li>你知道 RAG 不只是"向量检索 + prompt 拼接"，你试过 multi-hop retrieval、试过 graph RAG、试过用 agent 自己做 query decomposition，并且对每种方案在 latency/accuracy 上的 tradeoff 心中有数</li>
+              <li>你享受从 0 到 1 的构建感：周五下午聊了个 idea，周末撸出 MVP，周一早上的 demo 已经在处理真实用户反馈了</li>
+            </ul>
+          </div>
+          <div class="jd-block">
+            <div class="jd-label">希望你具备</div>
+            <ul class="jd-list">
+              <li>前端：React/Next.js 是基本功，你能在 30 分钟内搭出一个 streaming chat UI 带 markdown 渲染和 tool call 可视化</li>
+              <li>后端：能用 Python（FastAPI）+ Go/TypeScript 搭建 agent 服务，处理过 SSE/WebSocket streaming，对并发和背压有自己的理解</li>
+              <li>Agent 基础扎实：Tool Use / Function Calling / ReAct / Plan-and-Execute 这些范式你都亲手实现过，能说出 LangChain 哪里设计得好、哪里有抽象泄漏</li>
+              <li>加分项：有开源 AI 项目或技术博客；给 LangChain / CrewAI / AutoGen / Dify 等框架提过 feature；自己训练或 fine-tune 过小模型做 agent 场景专用；做过 MCP server 开发</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 6. AI产品 -->
+    <div class="job-card" onclick="toggleCard(this)">
+      <div class="job-header">
+        <div class="job-info">
+          <div class="job-title">AI 产品经理</div>
+          <div class="job-meta">
+            <span class="meta-loc">📍 上海 / 北京</span>
+            <span class="meta-type">全职 / 实习</span>
+          </div>
+        </div>
+        <div class="job-arrow">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="6 9 12 15 18 9"/>
+          </svg>
+        </div>
+      </div>
+      <div class="job-detail">
+        <div class="job-detail-inner">
+          <div class="jd-block">
+            <div class="jd-label">我们在找这样的你</div>
+            <ul class="jd-list">
+              <li>你不会在 PRD 里写"接入大模型实现智能问答"就觉得万事大吉——你会追问：模型的 latency 目标是多少？如果幻觉率 5% 用户能接受吗？failure mode 是什么样的？fallback 策略是什么？因为你知道 AI 产品的难度不在"能跑"，而在"永远不崩"</li>
+              <li>你每天都用各种 AI 产品——从 ChatGPT 到 Cursor 到 Perplexity 到各种小众 agent tool——你不是"调研"，你是真的重度用户，你会因为某个交互细节不爽而在群里喷三屏</li>
+              <li>你能和算法同学在同一个频道上讨论问题：知道 SFT/RLHF/RAG/Agent 分别能解决什么、不能解决什么，不会被"这个模型 benchmark 很高"这种话糊弄——你会反问"什么 benchmark？和我们的用户场景有什么关系？"</li>
+              <li>你相信最好的 AI 产品经理是半个 prompt engineer + 半个 UX 设计师 + 半个数据分析师，并且你已经在这三个方向上都有扎实的积累</li>
+            </ul>
+          </div>
+          <div class="jd-block">
+            <div class="jd-label">希望你具备</div>
+            <ul class="jd-list">
+              <li>有实际交付过的 AI 产品案例——不一定是公司项目，可以是个人 side project、开源工具、甚至一个活跃的 AI 社区 bot，但必须是你独立负责产品方向和关键决策</li>
+              <li>技术理解力：能自己调 API 跑通一个 agent demo，能看懂模型 benchmark 的论文摘要，能和工程师讨论 embedding/token/context window 这些概念而不需要对方反复解释</li>
+              <li>产品基本功：能从用户反馈中提炼出真正的需求（而不是用户说什么就做什么），能用数据验证假设，能在一周内把一个模糊的 idea 变成一个可评审的产品方案</li>
+              <li>加分项：有开发者工具/coding 工具/agent 平台类产品的经验；自己写过代码或做过数据分析；在 AI 社区有影响力（Twitter/即刻/公众号/播客等）</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Contact -->
+  <div id="contact" class="section-title">· 投递方式 ·</div>
+  <div class="contact-card">
+    <h3>📮 简历投递</h3>
+    <p>请将简历发送至下方邮箱，标题格式：<br><strong>姓名 - 岗位 - 地点</strong></p>
+    <a class="contact-email" href="mailto:HR@qijizhifeng.com" onclick="copyEmail(event)">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="2" y="4" width="20" height="16" rx="2"/>
+        <path d="m22 4-10 8L2 4"/>
+      </svg>
+      HR@qijizhifeng.com
+    </a>
+    <p style="margin-top:14px; font-size:12px; color:var(--text3);">
+      点击邮箱自动复制到剪贴板 📋
+    </p>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    奇绩智峰智能科技 &nbsp;|&nbsp; 上海 · 北京 &nbsp;|&nbsp; 与AI共赴山海
+  </footer>
+
+</div>
+
+<!-- Toast -->
+<div class="toast" id="toast"></div>
+
+<script>
+  function toggleCard(card) {
+    card.classList.toggle('open');
+  }
+
+  function copyEmail(e) {
+    e.preventDefault();
+    const email = 'HR@qijizhifeng.com';
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(email).then(() => showToast('✅ 邮箱已复制：' + email));
+    } else {
+      // fallback
+      const ta = document.createElement('textarea');
+      ta.value = email;
+      ta.style.position = 'fixed'; ta.style.opacity = '0';
+      document.body.appendChild(ta); ta.select();
+      document.execCommand('copy');
+      document.body.removeChild(ta);
+      showToast('✅ 邮箱已复制：' + email);
+    }
+    // also try to open mail client after a short delay
+    setTimeout(() => { window.location.href = 'mailto:' + email; }, 300);
+  }
+
+  function showToast(msg) {
+    const t = document.getElementById('toast');
+    t.textContent = msg;
+    t.classList.add('show');
+    clearTimeout(t._timeout);
+    t._timeout = setTimeout(() => t.classList.remove('show'), 2200);
+  }
+
+  // Auto open first card on load for visual appeal (subtle)
+  // document.querySelector('.job-card')?.classList.add('open');
+</script>
+</body>
+</html>
