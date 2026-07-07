@@ -396,21 +396,22 @@
       <div class="job-detail">
         <div class="job-detail-inner">
           <div class="jd-block">
-            <div class="jd-label">我们在找这样的你</div>
+            <div class="jd-label">岗位职责</div>
             <ul class="jd-list">
-              <li>你不满足于只是调包 SFT，你相信 RL 才是模型获得真正推理能力的钥匙——让模型在试错中长出"思维"，而不是背诵答案</li>
-              <li>你会盯着 wandb 的 reward curve 到凌晨，因为那个 spike 可能意味着某个 reward hacking，或者更妙的——某种 emergent reasoning 正在发生</li>
-              <li>你读 GRPO / Reward Model / Verifier 的 paper 不是"跟风"，而是脑子里已经有好几个想魔改的点子，手痒想上集群跑</li>
-              <li>你会和团队争论"这个 reward 到底该稀疏还是稠密"——然后直接写个 ablation 用数据说话</li>
+              <li>负责大模型强化学习对齐算法的研究与开发，包括但不限于 RLHF、GRPO、DPO 等方法的设计与优化</li>
+              <li>设计并迭代 Reward Model 与 Verifier 机制，提升模型在复杂推理任务上的对齐质量与准确性</li>
+              <li>探索 RL 在 LLM 中的前沿方向——过程奖励、推理链强化、多步规划——并推动在真实训练场景中验证</li>
+              <li>与后训练团队深度协作，将 RL 算法工程化落地到大规模训练管线，持续追踪训练指标并迭代</li>
             </ul>
           </div>
           <div class="jd-block">
-            <div class="jd-label">希望你具备</div>
+            <div class="jd-label">岗位要求</div>
             <ul class="jd-list">
-              <li>把 PPO/GRPO 的 loss 手写在白板上不会卡壳，知道 advantage 估计的不同 trick 及其偏差-方差 tradeoff</li>
-              <li>有至少一个 RL + LLM 的项目真正跑过——不是玩具实验，是真的在 GPU 集群上训过、调过、踩过坑的那种</li>
-              <li>PyTorch 是你的肌肉记忆，DeepSpeed/FSDP 至少摸过一种，能读懂 NCCL 的报错不靠 ChatGPT</li>
-              <li>加分项：在 ICML/NeurIPS/ICLR 发过 RL 相关 paper；给 Open RLHF / verl 等开源项目提过 PR；自己 hack 过 reward model 的架构</li>
+              <li>计算机/AI/数学等相关专业，硕士及以上学历，强化学习理论基础扎实</li>
+              <li>熟练掌握 PPO、GRPO 等主流 RL 算法，理解不同 advantage 估计方法的偏差-方差 tradeoff，能在白板上手推关键公式</li>
+              <li>有 RL × LLM 的实际项目经验——在 GPU 集群上完整跑过训练、调参、消融、评测闭环，非 toy experiment</li>
+              <li>熟练使用 PyTorch，熟悉 DeepSpeed / FSDP 等分布式训练框架，能独立排查训练过程中的异常</li>
+              <li>加分项：ICML/NeurIPS/ICLR 一作 RL 论文；为 Open RLHF / verl 等社区项目贡献过 PR；有 Reward Model 架构设计经验</li>
             </ul>
           </div>
         </div>
@@ -436,21 +437,23 @@
       <div class="job-detail">
         <div class="job-detail-inner">
           <div class="jd-block">
-            <div class="jd-label">我们在找这样的你</div>
+            <div class="jd-label">岗位职责</div>
             <ul class="jd-list">
-              <li>你清楚 pre-training 给模型的是"知识"，而 post-training 给的是"灵魂"——你着迷于那层薄薄的对齐层如何彻底改变模型的可用性</li>
-              <li>你对数据质量的洁癖到了偏执的程度——一条低质 SFT 样本混进十万条里你都能闻到，因为你知道 garbage in 在这里的代价是模型学会"假装听话"</li>
-              <li>你不会满足于跑通一个 SFT 流程，你想搞清楚：什么样的数据配比能让模型不灾难性遗忘？curriculum 的顺序真的影响最终效果吗？合成数据和人工标注的最佳配比是多少？</li>
-              <li>RLHF/DPO/SimPO/KTO——你知道每个方法的数学本质、适用场景和隐藏坑点，并且在真实任务上对比过它们</li>
+              <li>负责大语言模型后训练阶段（SFT、RLHF、DPO 等）的算法研发与持续迭代，将 base model 转化为可用、可靠、对齐的产品级模型</li>
+              <li>主导训练数据策略：设计数据清洗与质量过滤 pipeline，制定数据配比方案与 Curriculum Learning 策略，探索合成数据与人工标注的最优组合</li>
+              <li>针对长上下文理解、指令遵循、复杂推理等核心能力，提出并验证后训练阶段的专项提升方案</li>
+              <li>跟踪评估前沿对齐技术（Constitutional AI、RLAIF 等），在真实场景中做对比实验，为团队技术选型提供数据支撑</li>
             </ul>
           </div>
           <div class="jd-block">
-            <div class="jd-label">希望你具备</div>
+            <div class="jd-label">岗位要求</div>
             <ul class="jd-list">
-              <li>完整走过至少一轮 LLM 后训练全流程：数据清洗 → SFT → 对齐 → 评测，不是在 colab 上跑的 demo</li>
-              <li>对数据有强迫症：会写复杂的 dedup / 质量过滤 / 格式校验 pipeline，知道 embedding-based dedup 和 exact match 分别适用什么场景</li>
-              <li>熟悉主流评测体系（AlpacaEval / MT-Bench / Chatbot Arena 等），并且对它们的局限性有自己的判断——你不迷信 benchmark 数字</li>
-              <li>加分项：自己做过数据合成（从 seed 生成到多轮过滤）；给开源模型做过完整的 post-training pipeline；在 alignment 方向有 paper 或技术博客</li>
+              <li>计算机/AI/数学等相关专业，硕士及以上学历</li>
+              <li>完整经历过至少一轮 LLM 后训练全流程：数据清洗 → SFT → 对齐 → 评测，在真实 GPU 集群上运行，非 colab demo</li>
+              <li>对数据质量有工程级的把控能力：能独立搭建 dedup / 质量过滤 / 格式校验 pipeline，清楚不同数据筛选策略的适用边界与计算开销</li>
+              <li>理解 RLHF/DPO/SimPO/KTO 等方法的数学原理与工程 tradeoff，在真实任务上做过横向对比</li>
+              <li>熟悉 AlpacaEval、MT-Bench、Chatbot Arena 等主流评测体系，对 benchmark 的设计缺陷与局限性有自己的判断</li>
+              <li>加分项：独立完成过从 seed 到多轮过滤的数据合成 pipeline；为开源模型做过完整的 post-training；在 Alignment 方向有论文或技术博客</li>
             </ul>
           </div>
         </div>
@@ -476,21 +479,22 @@
       <div class="job-detail">
         <div class="job-detail-inner">
           <div class="jd-block">
-            <div class="jd-label">我们在找这样的你</div>
+            <div class="jd-label">岗位职责</div>
             <ul class="jd-list">
-              <li>你相信代码不只是文本——它是可执行的逻辑，有结构、有依赖、有运行时反馈。你不想做又一个代码补全模型，你想做的是真正理解代码的 AI</li>
-              <li>你对 SWE-bench 上的每个百分点都较真，但你更关心的是：模型是真的学会了推理 bug，还是只是在背 GitHub issue 里的讨论？</li>
-              <li>你可能会在周末无聊时写个脚本，把所有开源 code LLM 在你的私有 repo 上跑一轮对比，然后得出某个反直觉的结论在 Twitter 上发个 thread</li>
-              <li>你认为 code agent 的终极形态不是"写好 prompt 等输出"，而是让模型能 run test → read error → edit → run again——一个真正的编码闭环</li>
+              <li>负责代码大模型的训练、微调与系统评测，提升模型在代码生成、理解、调试、重构等多场景下的实际表现</li>
+              <li>构建高质量、多语言、多场景的代码训练数据集与评测基准，关注数据去污与避免 benchmark 泄露</li>
+              <li>探索代码执行反馈、多文件上下文建模、代码 Agent 闭环（run test → read error → edit → run again）等前沿方向</li>
+              <li>与产品及工程团队协作，将代码模型能力落地到开发者工具中，根据真实用户反馈驱动模型迭代</li>
             </ul>
           </div>
           <div class="jd-block">
-            <div class="jd-label">希望你具备</div>
+            <div class="jd-label">岗位要求</div>
             <ul class="jd-list">
-              <li>代码能力过硬：不止会写 Python，你对编译原理、AST、类型系统、程序分析至少一个方向有深入理解，能说出 tree-sitter 和 antlr 的设计差异</li>
-              <li>有 code model 相关的 hands-on 经验：训练过、fine-tune 过、或者搭建过代码模型的评测 pipeline，知道 HumanEval 和 SWE-bench 的局限性</li>
-              <li>理解 RL/搜索在代码生成中的应用：MCTS/过程奖励/执行反馈——你至少亲自实现过其中一种</li>
-              <li>加分项：给开源 code model 项目贡献过代码；自己做过 code agent 或 coding benchmark；在编译器/PL/形式化验证方向有学术背景</li>
+              <li>计算机相关专业，硕士及以上学历，编程功底扎实</li>
+              <li>对编译原理、AST、类型系统或程序分析至少一个方向有深入理解，能说清 tree-sitter 与 antlr 在设计理念上的核心差异</li>
+              <li>有代码模型相关的 hands-on 经验：训练、微调或搭建过评测 pipeline，了解 HumanEval、SWE-bench 等 benchmark 的设计逻辑与局限性</li>
+              <li>理解搜索/RL 在代码生成中的应用，至少实现过 MCTS、过程奖励或执行反馈中的一种</li>
+              <li>加分项：为开源代码模型项目贡献过代码；独立开发过 code agent 或 coding benchmark；有编译器/PL/形式化验证方向的学术背景</li>
             </ul>
           </div>
         </div>
@@ -516,21 +520,22 @@
       <div class="job-detail">
         <div class="job-detail-inner">
           <div class="jd-block">
-            <div class="jd-label">我们在找这样的你</div>
+            <div class="jd-label">岗位职责</div>
             <ul class="jd-list">
-              <li>你对"快"有生理级别的追求——kernel launch overhead 多 5μs 你会难受，GPU 利用率掉到 60% 以下你会觉得在烧钱，memory bandwidth 是你每天盯的 dashboard</li>
-              <li>你不只是"会用" vLLM 或 DeepSpeed——你读过它们的 CUDA kernel 源码，知道 page attention 为什么比 flash attention 在长序列上更吃显存，也改过 NCCL 的 ring/ tree topology 来适配你的集群拓扑</li>
-              <li>别跟你提"用 huggingface trainer 一键启动"——你要的是能精准控制每一层的 activation checkpointing、能按 layer 粒度编排 offload、能在千卡上做到 55%+ MFU 的训练框架</li>
-              <li>你享受那种"把一个 kernel 从 20ms 优化到 3ms"的纯粹快乐，然后轻描淡写地对同事说"就是把 shared memory 的 bank conflict 解决了一下"</li>
+              <li>设计与开发高性能大模型训练框架与推理引擎，持续逼近硬件算力上限</li>
+              <li>优化大规模分布式训练性能：并行策略选型与组合（TP/PP/DP/SP）、计算通信重叠、显存管理、activation checkpointing 细粒度控制</li>
+              <li>开发低延迟、高吞吐的在线推理服务，支撑大模型在生产环境中的稳定运行</li>
+              <li>适配与调优 GPU（NVIDIA / 国产芯片）算力，持续监控并提升集群 MFU</li>
             </ul>
           </div>
           <div class="jd-block">
-            <div class="jd-label">希望你具备</div>
+            <div class="jd-label">岗位要求</div>
             <ul class="jd-list">
-              <li>CUDA 是你的第二语言：知道 warp divergence、shared memory bank conflict、occupancy 怎么调，能手写 flash attention 的前向 kernel</li>
-              <li>分布式训练不只是概念：真正在百卡以上集群上调试过 TP/PP/DP/SP 的组合策略，遇到过一个 rank hang 住然后靠 trace 定位到某条链路故障的经历</li>
-              <li>读过 Megatron-LM / DeepSpeed / FSDP 至少一个框架的核心代码，能说出它们的设计取舍——什么时候用 TP 而不是 PP？SP 的通信量和计算量怎么量化？</li>
-              <li>加分项：给 vLLM / SGLang / TRT-LLM 提过 performance PR；搞过昇腾/寒武纪等国产芯片的算子适配；有 InfiniBand/RoCE 网络调优实战；写过 CUDA 的 flash-attn 风格 custom op</li>
+              <li>计算机相关专业，本科及以上学历</li>
+              <li>精通 C++/CUDA/Python，深入理解 GPU 体系结构：warp divergence、shared memory bank conflict、occupancy 调优，能手写 attention 类 custom kernel</li>
+              <li>熟悉 PyTorch 底层机制，深入了解 vLLM、DeepSpeed、Megatron-LM 等框架中至少两种的核心实现，能分析其并行策略的设计取舍</li>
+              <li>在百卡以上集群上有分布式训练实战经验，能独立排查通信异常、显存瓶颈与性能抖动，有 rank hang / NCCL timeout 等典型问题的 debug 经历</li>
+              <li>加分项：为 vLLM / SGLang / TRT-LLM 等项目提交过性能优化 PR；有国产芯片（昇腾/寒武纪等）算子适配经验；有 InfiniBand / RoCE 网络调优实战</li>
             </ul>
           </div>
         </div>
@@ -556,21 +561,22 @@
       <div class="job-detail">
         <div class="job-detail-inner">
           <div class="jd-block">
-            <div class="jd-label">我们在找这样的你</div>
+            <div class="jd-label">岗位职责</div>
             <ul class="jd-list">
-              <li>你可能是全栈出身，但最近一年你的 terminal 里出现最多的命令是各种 LLM API 的 curl 和 prompt 迭代脚本——你发现自己对"怎么让模型听话"比"怎么写 reducer"更着迷</li>
-              <li>你搭过至少一个 AI agent 的 side project——可能是自动处理邮件的，可能是帮你刷 LeetCode 的——但重点是你对 agent loop（感知→推理→调用→观察→再推理）有肌肉级的体感</li>
-              <li>你知道 RAG 不只是"向量检索 + prompt 拼接"，你试过 multi-hop retrieval、试过 graph RAG、试过用 agent 自己做 query decomposition，并且对每种方案在 latency/accuracy 上的 tradeoff 心中有数</li>
-              <li>你享受从 0 到 1 的构建感：周五下午聊了个 idea，周末撸出 MVP，周一早上的 demo 已经在处理真实用户反馈了</li>
+              <li>负责 AI Agent 产品的全栈设计与开发，包括 Agent 编排框架、工具调用系统、多步推理引擎及前端交互体验</li>
+              <li>构建从前端到后端 Agent 服务的完整系统，支持 streaming 响应、异步任务调度、状态持久化与回溯</li>
+              <li>探索 Agent 记忆管理、多 Agent 协作、人机协同等进阶能力，并在产品中验证实际效果</li>
+              <li>快速迭代产品原型，从用户反馈中提炼需求，持续打磨产品体验</li>
             </ul>
           </div>
           <div class="jd-block">
-            <div class="jd-label">希望你具备</div>
+            <div class="jd-label">岗位要求</div>
             <ul class="jd-list">
-              <li>前端：React/Next.js 是基本功，你能在 30 分钟内搭出一个 streaming chat UI 带 markdown 渲染和 tool call 可视化</li>
-              <li>后端：能用 Python（FastAPI）+ Go/TypeScript 搭建 agent 服务，处理过 SSE/WebSocket streaming，对并发和背压有自己的理解</li>
-              <li>Agent 基础扎实：Tool Use / Function Calling / ReAct / Plan-and-Execute 这些范式你都亲手实现过，能说出 LangChain 哪里设计得好、哪里有抽象泄漏</li>
-              <li>加分项：有开源 AI 项目或技术博客；给 LangChain / CrewAI / AutoGen / Dify 等框架提过 feature；自己训练或 fine-tune 过小模型做 agent 场景专用；做过 MCP server 开发</li>
+              <li>计算机相关专业，本科及以上学历</li>
+              <li>前端：熟练掌握 TypeScript / React / Next.js，能独立搭建流式对话 UI，包括 markdown 渲染、tool call 过程可视化、多轮对话状态管理</li>
+              <li>后端：熟练使用 Python（FastAPI 等）或 Go / TypeScript 搭建 Agent 服务，有 SSE / WebSocket 实战经验，理解并发模型与背压控制</li>
+              <li>Agent 基础：深入理解 Tool Use / Function Calling / ReAct / Plan-and-Execute 等范式的原理与工程实现，有从 0 到 1 的 Agent 项目经验</li>
+              <li>加分项：有开源 AI 项目或技术博客；为 LangChain / CrewAI / AutoGen / Dify 等框架贡献过代码；做过 MCP Server 开发；有 fine-tune 小模型用于 Agent 场景的经验</li>
             </ul>
           </div>
         </div>
@@ -596,21 +602,22 @@
       <div class="job-detail">
         <div class="job-detail-inner">
           <div class="jd-block">
-            <div class="jd-label">我们在找这样的你</div>
+            <div class="jd-label">岗位职责</div>
             <ul class="jd-list">
-              <li>你不会在 PRD 里写"接入大模型实现智能问答"就觉得万事大吉——你会追问：模型的 latency 目标是多少？如果幻觉率 5% 用户能接受吗？failure mode 是什么样的？fallback 策略是什么？因为你知道 AI 产品的难度不在"能跑"，而在"永远不崩"</li>
-              <li>你每天都用各种 AI 产品——从 ChatGPT 到 Cursor 到 Perplexity 到各种小众 agent tool——你不是"调研"，你是真的重度用户，你会因为某个交互细节不爽而在群里喷三屏</li>
-              <li>你能和算法同学在同一个频道上讨论问题：知道 SFT/RLHF/RAG/Agent 分别能解决什么、不能解决什么，不会被"这个模型 benchmark 很高"这种话糊弄——你会反问"什么 benchmark？和我们的用户场景有什么关系？"</li>
-              <li>你相信最好的 AI 产品经理是半个 prompt engineer + 半个 UX 设计师 + 半个数据分析师，并且你已经在这三个方向上都有扎实的积累</li>
+              <li>负责 AI 产品从 0 到 1 的规划、定义与全生命周期管理，制定产品路线图并驱动落地</li>
+              <li>深入理解大模型的能力边界与 failure mode，在此基础上定义产品功能、交互范式与质量基线</li>
+              <li>持续跟踪行业动态与竞品，识别差异化机会，为团队提供有数据支撑的产品决策</li>
+              <li>跨团队协调算法、工程、设计资源，确保产品按时按质交付，并对最终用户体验负责</li>
             </ul>
           </div>
           <div class="jd-block">
-            <div class="jd-label">希望你具备</div>
+            <div class="jd-label">岗位要求</div>
             <ul class="jd-list">
-              <li>有实际交付过的 AI 产品案例——不一定是公司项目，可以是个人 side project、开源工具、甚至一个活跃的 AI 社区 bot，但必须是你独立负责产品方向和关键决策</li>
-              <li>技术理解力：能自己调 API 跑通一个 agent demo，能看懂模型 benchmark 的论文摘要，能和工程师讨论 embedding/token/context window 这些概念而不需要对方反复解释</li>
-              <li>产品基本功：能从用户反馈中提炼出真正的需求（而不是用户说什么就做什么），能用数据验证假设，能在一周内把一个模糊的 idea 变成一个可评审的产品方案</li>
-              <li>加分项：有开发者工具/coding 工具/agent 平台类产品的经验；自己写过代码或做过数据分析；在 AI 社区有影响力（Twitter/即刻/公众号/播客等）</li>
+              <li>本科及以上学历，3 年以上产品经理经验</li>
+              <li>对 LLM 技术原理有切实理解（SFT / RLHF / RAG / Agent 等），能与算法工程师进行对等、高效的技术讨论，不被 benchmark 数字表面迷惑</li>
+              <li>有实际交付的 AI 产品案例——公司项目或个人 side project 均可，但需独立负责产品方向与关键决策</li>
+              <li>产品基本功过硬：能从用户反馈中提炼核心需求，用数据验证假设，将模糊想法转化为可评审、可执行的产品方案</li>
+              <li>加分项：有开发者工具 / 代码助手 / Agent 平台类产品经验；具备基础编程或数据分析能力；在 AI 社区有持续的内容输出或影响力</li>
             </ul>
           </div>
         </div>
