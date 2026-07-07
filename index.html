@@ -40,21 +40,18 @@
     min-height: 100vh;
   }
 
-  /* ── Mountain sky background ── */
   .stars {
     position: fixed; top:0; left:0; width:100%; height:100%;
     pointer-events: none; z-index: 0;
     background: linear-gradient(180deg, #e8f2fa 0%, #f2f7fb 30%, #f8fafc 70%, #eef3f8 100%);
   }
 
-  /* ── Container ── */
   .container {
     position: relative; z-index: 1;
     max-width: 520px; margin: 0 auto;
     padding: 0 20px;
   }
 
-  /* ── Header ── */
   .header {
     text-align: center;
     padding: 60px 0 40px;
@@ -100,7 +97,6 @@
     letter-spacing: 0.04em;
   }
 
-  /* ── Section title ── */
   .section-title {
     font-size: 13px; font-weight: 700;
     text-transform: uppercase;
@@ -110,7 +106,6 @@
     padding-left: 4px;
   }
 
-  /* ── About card ── */
   .about-card {
     background: var(--surface);
     border: 1px solid var(--border);
@@ -136,7 +131,6 @@
     letter-spacing: 0.03em;
   }
 
-  /* ── Job card ── */
   .job-list { display:flex; flex-direction:column; gap:10px; margin-bottom:20px; }
 
   .job-card {
@@ -274,7 +268,6 @@
     box-shadow: 0 6px 20px rgba(58,124,195,0.3);
   }
 
-  /* ── Contact section ── */
   .contact-card {
     background: var(--surface);
     border: 1px solid var(--border);
@@ -312,7 +305,6 @@
     width: 18px; height: 18px;
   }
 
-  /* ── Footer ── */
   .footer {
     text-align: center;
     padding: 32px 0 40px;
@@ -320,7 +312,6 @@
     letter-spacing: 0.05em;
   }
 
-  /* ── Toast ── */
   .toast {
     position: fixed; top: 24px; left: 50%;
     transform: translateX(-50%) translateY(-120px);
@@ -336,7 +327,6 @@
   }
   .toast.show { transform: translateX(-50%) translateY(0); }
 
-  /* ── Responsive ── */
   @media (max-width: 400px) {
     .company-name { font-size: 24px; }
     .job-title { font-size: 15px; }
@@ -349,7 +339,6 @@
 
 <div class="container">
 
-  <!-- Header -->
   <header class="header">
     <div class="logo-line">
       <div class="logo-diamond"></div>
@@ -358,7 +347,6 @@
     <h1 class="company-name">奇绩智峰智能科技</h1>
   </header>
 
-  <!-- About -->
   <div class="section-title">· 关于我们 ·</div>
   <div class="about-card">
     <p>
@@ -373,11 +361,9 @@
     </div>
   </div>
 
-  <!-- Jobs -->
   <div class="section-title">· 热招岗位 ·</div>
   <div class="job-list">
 
-    <!-- 1. RL算法 -->
     <div class="job-card" onclick="toggleCard(this)">
       <div class="job-header">
         <div class="job-info">
@@ -417,7 +403,6 @@
       </div>
     </div>
 
-    <!-- 2. LLM后训练算法 -->
     <div class="job-card" onclick="toggleCard(this)">
       <div class="job-header">
         <div class="job-info">
@@ -457,7 +442,6 @@
       </div>
     </div>
 
-    <!-- 3. Code算法 -->
     <div class="job-card" onclick="toggleCard(this)">
       <div class="job-header">
         <div class="job-info">
@@ -497,7 +481,6 @@
       </div>
     </div>
 
-    <!-- 4. AI Infra -->
     <div class="job-card" onclick="toggleCard(this)">
       <div class="job-header">
         <div class="job-info">
@@ -537,7 +520,6 @@
       </div>
     </div>
 
-    <!-- 5. AI Agent 全栈 -->
     <div class="job-card" onclick="toggleCard(this)">
       <div class="job-header">
         <div class="job-info">
@@ -577,7 +559,6 @@
       </div>
     </div>
 
-    <!-- 6. AI产品 -->
     <div class="job-card" onclick="toggleCard(this)">
       <div class="job-header">
         <div class="job-info">
@@ -619,7 +600,6 @@
 
   </div>
 
-  <!-- Contact -->
   <div id="contact" class="section-title">· 投递方式 ·</div>
   <div class="contact-card">
     <h3>📮 简历投递</h3>
@@ -636,14 +616,12 @@
     </p>
   </div>
 
-  <!-- Footer -->
   <footer class="footer">
     奇绩智峰智能科技 &nbsp;|&nbsp; 上海 · 北京 &nbsp;|&nbsp; 与AI共赴山海
   </footer>
 
 </div>
 
-<!-- Toast -->
 <div class="toast" id="toast"></div>
 
 <script>
@@ -657,8 +635,7 @@
     if (navigator.clipboard && navigator.clipboard.writeText) {
       navigator.clipboard.writeText(email).then(() => showToast('✅ 邮箱已复制：' + email));
     } else {
-      // fallback
-      const ta = document.createElement('textarea');
+      var ta = document.createElement('textarea');
       ta.value = email;
       ta.style.position = 'fixed'; ta.style.opacity = '0';
       document.body.appendChild(ta); ta.select();
@@ -666,20 +643,20 @@
       document.body.removeChild(ta);
       showToast('✅ 邮箱已复制：' + email);
     }
-    // also try to open mail client after a short delay
-    setTimeout(() => { window.location.href = 'mailto:' + email; }, 300);
+    // 只在移动端尝试打开邮件客户端
+    var isMobile = /Android|iPhone|iPad|iPod|webOS/i.test(navigator.userAgent);
+    if (isMobile) {
+      setTimeout(function() { window.location.href = 'mailto:' + email; }, 300);
+    }
   }
 
   function showToast(msg) {
-    const t = document.getElementById('toast');
+    var t = document.getElementById('toast');
     t.textContent = msg;
     t.classList.add('show');
     clearTimeout(t._timeout);
-    t._timeout = setTimeout(() => t.classList.remove('show'), 2200);
+    t._timeout = setTimeout(function() { t.classList.remove('show'); }, 2200);
   }
-
-  // Auto open first card on load for visual appeal (subtle)
-  // document.querySelector('.job-card')?.classList.add('open');
 </script>
 </body>
 </html>
